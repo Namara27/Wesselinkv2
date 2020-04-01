@@ -20,7 +20,7 @@ if (!isset($_SESSION['login'])) {
             <ul>
                 <li><a href="indexAdmin.php">Home</a></li>
                 <li><a href="evenementenAdmin.php">Evenementen</a></li>
-                <li><a href="">Accounts</a></li>
+                <li><a href="accountsAdmin.php">Accounts</a></li>
                 <li><a href="addAccountAdmin.php">Beheer</a></li>
                 <li><a href="">Profiel</a></li>
                 <li><a href="../logout.php">Loguit</a></li>

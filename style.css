@@ -97,7 +97,7 @@ table.zenderoverzicht th {
     padding: 10px;
 }
 
-/* ----------------------- evenementen overzicht ----------------------- */
+/* ----------------------- add event ----------------------- */
 
 #addAccount {
     display: inline-block;
@@ -297,7 +297,7 @@ table.zenderoverzicht th {
     background-color: #2868c7;
 }
 
-/* ----------------------- add account, functie, event ----------------------- */
+/* ----------------------- add account, functie, event form ----------------------- */
 
 .addAccount, .addFunctie, .addEvent {
     width: 400px;

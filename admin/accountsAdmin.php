@@ -12,7 +12,7 @@ if (!isset($_SESSION['login'])) {
 <head>
     <link rel="stylesheet" href="../style.css">
     <meta charset="UTF-8">
-    <title>Evenementen</title>
+    <title>Accounts</title>
 </head>
 <body>
 <div id="wrapper">
@@ -30,23 +30,24 @@ if (!isset($_SESSION['login'])) {
     </header>
     <form action="zoekenAdmin.php" method="post">
         <div id="zoekVeld">
-            <p>Zoek evenement</p>
+            <p>Zoek account</p>
             <input type="text" name="zoekInput"/>
             <input type="submit" value="Zoek" name="zoekKnop"/>
         </div>
     </form>
-    <form action="" method="post">
+    <form action="accountDeleteAdmin.php" method="post">
         <div id="overzichtHouder">
             <?php
             //Display the data in a table
-            $query = $conn->query("SELECT datum, evenementNaam, locatie FROM evenementen");
+            $query = $conn->query("SELECT accountID, voornaam, tussenvoegsel, achternaam FROM account");
             print "<table class ='zenderoverzicht'>";
-            print "<tr><th>Datum</th><th>Evenement naam</th><th>Locatie</th></tr>";
+            print "<tr><th>Voornaam</th><th>Tussenvoegsel</th><th>Achternaam</th><th></th></tr>";
             foreach ($query as $row) {
                 print "<tr>";
-                print "<td>" . $row['datum'] . "</td>";
-                print "<td>" . $row['evenementNaam'] . "</td>";
-                print "<td>" . $row['locatie'] . "</td>";
+                print "<td>" . "<button onclick=\"window.location = 'indexAdmin.php';\" value='" . $row['accountID'] . "' name='accountDeleteKnop' hidden>Verwijder</button>" . "</td>";
+                print "<td>" . $row['tussenvoegsel'] . "</td>";
+                print "<td>" . '<input type="button" name="achternaamKnop" value="' . $row['achternaam'] . '"/>';
+                print "<td>" . "<button onclick=\"window.location = 'accountDeleteAdmin.php';\" value='" . $row['accountID'] . "' name='accountDeleteKnop'>Verwijder</button>" . "</td>";
                 print "</tr>";
             }
             print "</table>";
