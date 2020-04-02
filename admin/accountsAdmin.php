@@ -35,7 +35,7 @@ if (!isset($_SESSION['login'])) {
             <input type="submit" value="Zoek" name="zoekKnop"/>
         </div>
     </form>
-    <form action="accountDeleteAdmin.php" method="post">
+    <form action="accountDetailsAdmin.php" method="post">
         <div id="overzichtHouder">
             <?php
             //Display the data in a table
@@ -44,10 +44,10 @@ if (!isset($_SESSION['login'])) {
             print "<tr><th>Voornaam</th><th>Tussenvoegsel</th><th>Achternaam</th><th></th></tr>";
             foreach ($query as $row) {
                 print "<tr>";
-                print "<td>" . "<button onclick=\"window.location = 'indexAdmin.php';\" value='" . $row['accountID'] . "' name='accountDeleteKnop' hidden>Verwijder</button>" . "</td>";
+                print "<td>" . "<button onclick=\"window.location = 'accountDetailsAdmin.php';\" value='" . $row['accountID'] . "' name='accountDetailsKnop'>". $row['voornaam'] ."</button>" . "</td>";
                 print "<td>" . $row['tussenvoegsel'] . "</td>";
-                print "<td>" . '<input type="button" name="achternaamKnop" value="' . $row['achternaam'] . '"/>';
-                print "<td>" . "<button onclick=\"window.location = 'accountDeleteAdmin.php';\" value='" . $row['accountID'] . "' name='accountDeleteKnop'>Verwijder</button>" . "</td>";
+                print "<td>" . "<button onclick=\"window.location = 'accountDetailsAdmin.php';\" value='" . $row['accountID'] . "' name='accountDetailsKnop'>". $row['achternaam'] ."</button>" . "</td>";
+                print "<td>" . "<button onclick=\"window.location = 'accountDetailsAdmin.php';\" value='" . $row['accountID'] . "' name='accountDeleteKnop'>Verwijder</button>" . "</td>";
                 print "</tr>";
             }
             print "</table>";
@@ -55,7 +55,7 @@ if (!isset($_SESSION['login'])) {
         </div>
     </form>
     <footer>
-        <p>&copy;Kraeken</p>
+        <p>&copy;2019</p>
     </footer>
 </div>
 </body>

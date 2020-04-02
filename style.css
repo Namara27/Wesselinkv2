@@ -102,18 +102,18 @@ table.zenderoverzicht th {
 #addAccount {
     display: inline-block;
     margin-right: 10px;
-    /*background-color: red;*/
-    /*height: 10px;*/
-    /*width: 10px;*/
+    text-decoration: none;
 }
 
 #addEvent {
     display: inline-block;
+    text-decoration: none;
 }
 
 #addFuncties {
     display: inline-block;
     margin-right: 10px;
+    text-decoration: none;
 }
 
 /* ----------------------- login form ----------------------- */
@@ -358,7 +358,8 @@ table.zenderoverzicht th {
     color: #ffffff;
 }
 
-.addAccount form input[name="addAccountKnop"], .addFunctie form input[name="addFunctieKnop"], .addEvent form input[name="addEventKnop"] {
+.addAccount form input[name="addAccountKnop"], .addFunctie form input[name="addFunctieKnop"], .addEvent form input[name="addEventKnop"],
+.addFunctie form input[name="WijzigEmailKnop"], .addFunctie form button[name="functieWijzigKnop"] {
     width: 100%;
     padding: 15px;
     border-top: 1px solid white;

@@ -11,6 +11,7 @@ if (!isset($_SESSION['login'])) {
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
     <title>Homepage</title>
 </head>
 <body>
@@ -27,8 +28,15 @@ if (!isset($_SESSION['login'])) {
             </ul>
         </nav>
     </header>
-    <div id="picHolder">
-        <img src="../img/evenement.jpg" alt="evenement">
+    <div class="addFunctie">
+        <h1>Wijzig E-mail</h1>
+        <form action="wijzigEmailForm.php" method="post">
+            <label for="email">
+                <i class="fas fa-user"></i>
+            </label>
+            <input type="text" name="email" placeholder="Email" id="email">
+            <input type="submit" value="Wijzig" name="WijzigEmailKnop">
+        </form>
     </div>
     <footer>
         <p>&copy;2019</p>

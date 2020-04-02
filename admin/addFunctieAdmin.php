@@ -28,14 +28,11 @@ if (!isset($_SESSION['login'])) {
             </ul>
         </nav>
     </header>
-    <div id="addAccount">
-        <a href="addAccountAdmin.php">Account toevoegen</a>
-    </div>
     <div id="addFuncties">
-        <a href="addFunctieAdmin.php">Functie toevoegen</a>
+        <a href="functiesOverzichtAdmin.php">Functies</a>
     </div>
     <div id="addEvent">
-        <a href="addEventAdmin.php">Evenement toevoegen</a>
+        <a href="addFunctieAdmin.php">Functie toevoegen</a>
     </div>
     <div class="addFunctie">
         <h1>Functie aanmaken</h1>
@@ -52,7 +49,7 @@ if (!isset($_SESSION['login'])) {
         </form>
     </div>
     <footer>
-        <p>&copy;Kraeken</p>
+        <p>&copy;2019</p>
     </footer>
 </div>
 </body>

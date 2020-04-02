@@ -57,7 +57,7 @@ if (!isset($_SESSION['login'])) {
         </div>
     </form>
     <footer>
-        <p>&copy;Kraeken</p>
+        <p>&copy;2019</p>
     </footer>
 </div>
 </body>

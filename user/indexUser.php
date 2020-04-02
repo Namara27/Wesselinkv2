@@ -30,7 +30,7 @@ if (!isset($_SESSION['login'])) {
         <img src="../img/evenement.jpg" alt="evenement">
     </div>
     <footer>
-        <p>&copy; Kraeken</p>
+        <p>&copy;2019</p>
     </footer>
 </div>
 </body>
