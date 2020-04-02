@@ -1,9 +1,23 @@
 <?php
+include_once('../DBconnection.php');
 session_start();
 if (!isset($_SESSION['login'])) {
     header('location: ../login.html');
     exit;
 }
+
+if (isset($_POST["WijzigEmailKnop"])) {
+    $email = $_POST['email'];
+
+    $sql = "UPDATE account SET email = ? FROM account WHERE accountID = " . $_POST['accountDetailsKnop'] . " ";
+    $result = $conn->prepare($sql);
+    $result->execute([$email]);
+
+//    echo "<script>alert('Email successfully updatded!'); window.location='accountDetailsAdmin.php.php';</script>";
+//} else {
+//    echo "<script>alert('Kan E-mail niet wijzigen'); window.location='accountDetailsWijzigEmailAdmin.php';</script>";
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -30,7 +44,7 @@ if (!isset($_SESSION['login'])) {
     </header>
     <div class="addFunctie">
         <h1>Wijzig E-mail</h1>
-        <form action="wijzigEmailForm.php" method="post">
+        <form action="accountDetailsWijzigEmailAdmin.php" method="post">
             <label for="email">
                 <i class="fas fa-user"></i>
             </label>

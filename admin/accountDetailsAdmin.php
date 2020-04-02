@@ -8,7 +8,6 @@ if (!isset($_SESSION['login'])) {
 
 //Delete a row
 if (isset($_POST['accountDeleteKnop'])) {
-    echo 'adasd';
     $id = $_POST['accountDeleteKnop'];
 
     $sql = "DELETE FROM account WHERE accountID = ? ";
@@ -17,12 +16,15 @@ if (isset($_POST['accountDeleteKnop'])) {
 
     header("location: accountsAdmin.php");
 }
+
+
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
     <meta charset="UTF-8">
     <title>Account details</title>
 </head>
@@ -40,32 +42,48 @@ if (isset($_POST['accountDeleteKnop'])) {
             </ul>
         </nav>
     </header>
-    <form action="accountDetailsWijzigEmailAdmin.php" method="post">
-        <div id="overzichtHouder">
-            <?php
-            if (isset($_POST["accountDetailsKnop"])) {
-                $query = $conn->query("SELECT voornaam, tussenvoegsel, achternaam, email, telefoon FROM account WHERE accountID = " . $_POST['accountDetailsKnop'] . " ");
-                print "<table class ='zenderoverzicht'>";
-                foreach ($query as $row) {
-                    print "<tr><th colspan='3'>" . $row['voornaam'] . " " . $row['tussenvoegsel'] . " " . $row['achternaam'] . "</th></tr>";
-                    print "<tr>";
-                    print "<td>E-mail:</td>";
-                    print "<td>" . $row['email'] . "</td>";
-                    print "<td>" . "<button onclick=\"window.location = 'accountDetailsWijzigEmailAdmin.php';\" value='" . $_POST['accountDetailsKnop'] . "' name='accountWijzigEmailKnop'>Wijzig</button>" . "</td>";
-                    print "</tr>";
-                    print "<tr>";
-                    print "<tr>";
-                    print "<td>Telefoon:</td>";
-                    print "<td>" . $row['telefoon'] . "</td>";
-                    print "<td>" . "<button onclick=\"window.location = 'accountDetailsWijzigNummerAdmin.php';\" value='" . $_POST['accountDetailsKnop'] . "' name='accountWijzigKnop'>Wijzig</button>" . "</td>";
-                    print "</tr>";
-                }
-                print "</table>";
-            }
+    <div class="profiel">
+        <?php
+        $query = $conn->query("SELECT voornaam, tussenvoegsel, achternaam, email, telefoon FROM account WHERE accountID = " . $_POST['accountDetailsKnop'] . " ");
+        foreach ($query as $row) {
+            print "<h1>" . $row['voornaam'] . " " . $row['tussenvoegsel'] . " " . $row['achternaam'] . "</h1>";
+            print "<form action='accountDetailsAdmin.php' method='post'>";
 
-            ?>
-        </div>
-    </form>
+            print "<label for='accountvoornaam'>Voornaam: </label>";
+            print "<input type='text' name='accountvoornaam' value='" . $row['voornaam'] . "' id='accountvoornaam'>";
+
+            print "<label for='accounttussenvoegsel'>Tussenvoegsel: </label>";
+            print "<input type='text' name='accounttussenvoegsel' value='" . $row['tussenvoegsel'] . "' id='accounttussenvoegsel'>";
+
+            print "<label for='accountachternaam'>Achternaam: </label>";
+            print "<input type='text' name='accountachternaam' value='" . $row['achternaam'] . "' id='accountachternaam'>";
+
+            print "<label for='accountemail'>E-mail: </label>";
+            print "<input type='text' name='accountemail' value='" . $row['email'] . "' id='accountemail'>";
+
+            print "<label for='accountnummer'>Telefoonnummer: </label>";
+            print "<input type='text' name='accountnummer' value='" . $row['telefoon'] . "' id='accountnummer'>";
+
+            print "<button onclick=\"window.location = 'accountDetailsAdmin.php';\" value='' name='accountWijzigKnop'>Wijzig</button>";
+        }
+
+        //Update a row
+        if (isset($_POST['accountWijzigKnop'])) {
+            $voornaam = $_POST['accountvoornaam'];
+            $tussenvoegsel = $_POST['accounttussenvoegsel'];
+            $achternaam = $_POST['accountachternaam'];
+            $email = $_POST['accountemail'];
+            $nummer = $_POST['accountnummer'];
+
+            $sql = "UPDATE account SET voornaam = ?, tussenvoegsel = ?, achternaam = ?, email = ?, telefoonnummer = ? WHERE accountID = " . $_POST['accountDetailsKnop'] . " ";
+            $query = $conn->prepare($sql);
+            $result = $query->execute(array($voornaam, $tussenvoegsel, $achternaam, $email, $nummer));
+
+            header("location: accountDetailsAdmin.php");
+        }
+        ?>
+        </form>
+    </div>
     <footer>
         <p>&copy;2019</p>
     </footer>

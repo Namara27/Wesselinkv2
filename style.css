@@ -359,7 +359,7 @@ table.zenderoverzicht th {
 }
 
 .addAccount form input[name="addAccountKnop"], .addFunctie form input[name="addFunctieKnop"], .addEvent form input[name="addEventKnop"],
-.addFunctie form input[name="WijzigEmailKnop"], .addFunctie form button[name="functieWijzigKnop"] {
+.addFunctie form input[name="WijzigEmailKnop"] {
     width: 100%;
     padding: 15px;
     border-top: 1px solid white;
@@ -376,4 +376,94 @@ table.zenderoverzicht th {
 
 .addAccount form input[type="submit"]:hover, .addFunctie form input[type="submit"]:hover, .addEvent form input[type="submit"]:hover {
     background-color: #2868c7;
+}
+
+/* ----------------------- profiel ----------------------- */
+
+.profiel {
+    width: 500px;
+    background-color: #ffffff;
+    margin: 100px auto;
+    box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.2), 0 0 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 25px;
+}
+
+.profiel h1 {
+    text-align: center;
+    font-size: 24px;
+    padding: 20px 0 20px 0;
+    border-bottom: 1px solid #dee0e4;
+    background-color: white;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+}
+
+.profiel form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 20px;
+    background-color: white;
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+}
+
+.profiel form label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 50px;
+    background-color: #3274d6;
+    color: #ffffff;
+}
+
+.profiel form input[type="password"], .profiel form input[type="text"] {
+    width: 310px;
+    height: 48px;
+    border: 1px solid #dee0e4;
+    margin-bottom: 20px;
+    padding: 0 15px;
+    background-color: white;
+}
+
+.profiel form button[name="accountWijzigKnop"] {
+    width: 100%;
+    padding: 15px;
+    border-top: 1px solid white;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0;
+    background-color: #3274d6;
+    cursor: pointer;
+    font-weight: bold;
+    color: #ffffff;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+.profiel form a#registreren {
+    width: 100%;
+    padding: 15px;
+    border-top: 1px solid white;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0;
+    background-color: #3274d6;
+    cursor: pointer;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+    font-size: 13px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+.profiel form input[type="submit"]:hover, .profiel form a#registreren:hover {
+    background-color: #2868c7;
+}
+
+.fa-user, .fa-lock, .fa-envelope {
+    background-color: #3274d6;
 }
